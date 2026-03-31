@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Doorsteps Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">The Doorsteps Project</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="how-we-work.html" class="nav-link">How We Work</a></li>
+                <li><a href="global-success.html" class="nav-link">Global Success</a></li>
+                <li><a href="impact.html" class="nav-link">Impact</a></li>
+                <li><a href="join-us.html" class="nav-link">Join Us</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-line">The Doorsteps</span>
+                <span class="hero-line">Project</span>
+            </h1>
+            <p class="hero-subtitle">Removing barriers. Restoring education. Building futures.</p>
+            <div class="hero-cta">
+                <a href="#story" class="cta-button">Discover Our Story</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Transition Section -->
+    <section class="transition-section">
+        <div class="floating-text">
+            <span class="float-word">Education</span>
+            <span class="float-word">Hope</span>
+            <span class="float-word">Change</span>
+            <span class="float-word">Future</span>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story" id="story">
+        <div class="container">
+            <h2 class="section-title">OUR STORY</h2>
+
+            <div class="story-content">
+                <p class="story-text reveal-text">I was ten when I first understood how unequal access to education could be.</p>
+
+                <p class="story-text reveal-text">A woman who worked in our home brought her daughter with her — a girl my age. I had just come back from school, talking about what I had learned, while she had come to work. When I asked why she wasn't in school, the answer was simple: <span class="highlight-text">NO TIME, NO MONEY, and TOO LATE</span></p>
+
+                <p class="story-text reveal-text">That contrast stayed with me.</p>
+
+                <p class="story-text reveal-text">So I started small. I began teaching her whatever I knew, sitting together each day after she finished her work. Over time, something shifted — not just in what she learned, but in what she believed was possible. She began to want school for herself.</p>
+
+                <p class="story-text reveal-text emphasis-text">That moment grew.</p>
+
+                <div class="growth-visual">
+                    <div class="growth-item" data-growth="1">
+                        <div class="image-placeholder">
+                            <div class="image-inner">
+                                <span>ONE CHILD</span>
+                            </div>
+                        </div>
+                        <p class="growth-text">One child became a</p>
+                    </div>
+
+                    <div class="growth-arrow">→</div>
+
+                    <div class="growth-item" data-growth="2">
+                        <div class="image-placeholder">
+                            <div class="image-inner">
+                                <span>SMALL GROUP</span>
+                            </div>
+                        </div>
+                        <p class="growth-text">small group, and then</p>
+                    </div>
+
+                    <div class="growth-arrow">→</div>
+
+                    <div class="growth-item" data-growth="3">
+                        <div class="image-placeholder">
+                            <div class="image-inner">
+                                <span>MOVEMENT</span>
+                            </div>
+                        </div>
+                        <p class="growth-text">something larger.</p>
+                    </div>
+                </div>
+
+                <p class="story-text reveal-text">But as the effort expanded, it became clear that teaching alone wasn't enough. Children weren't out of school simply because they hadn't learned — they were held back by financial pressure, unsupported systems, and the belief that they had fallen too far behind.</p>
+
+                <div class="story-conclusion">
+                    <h3 class="conclusion-title">The Doorsteps Project was built from that realisation.</h3>
+                    <p class="conclusion-text">Not just to teach, but to remove the barriers around learning — so that returning to school becomes possible, sustainable, and lasting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Break -->
+    <section class="visual-break">
+        <div class="parallax-container">
+            <div class="parallax-layer layer-1"></div>
+            <div class="parallax-layer layer-2"></div>
+            <div class="parallax-layer layer-3"></div>
+            <div class="parallax-text">
+                <h2>Every child deserves a chance</h2>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 The Doorsteps Project. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy</a>
+                <a href="#" class="footer-link">Terms</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="animations.js"></script>
+</body>
+</html>
