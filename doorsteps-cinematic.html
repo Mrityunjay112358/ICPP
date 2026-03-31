@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Doorsteps Project — Ensuring every child returns to school, for life</title>
+    <meta name="description" content="A closed-loop model for education reintegration across India, Africa, and Nepal.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <link rel="stylesheet" href="doorsteps-cinematic.css">
+</head>
+<body>
+    <!-- Grain Texture Overlay -->
+    <div class="grain"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">The Doorsteps Project</div>
+            <ul class="nav-menu">
+                <li><a href="#our-story">Our Story</a></li>
+                <li><a href="#how-we-work">How We Work</a></li>
+                <li><a href="#global-success">Global Success</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#join-us" class="nav-cta">Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-bg-layer layer-1"></div>
+            <div class="hero-bg-layer layer-2"></div>
+            <div class="hero-bg-layer layer-3"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-title-line">The Doorsteps</span>
+                <span class="hero-title-line">Project</span>
+            </h1>
+            <p class="hero-subtitle">Ensuring every child returns to school — not just once, but for life.</p>
+            <div class="hero-ctas">
+                <a href="#our-story" class="btn btn-primary">Learn More</a>
+                <a href="#join-us" class="btn btn-secondary">Join Us</a>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section our-story" id="our-story">
+        <div class="container">
+            <h2 class="section-title reveal-text">OUR STORY</h2>
+
+            <div class="story-content">
+                <p class="story-paragraph reveal-text large-text">I was ten when I first understood how unequal access to education could be.</p>
+
+                <p class="story-paragraph reveal-text">A woman who worked in our home brought her daughter with her — a girl my age. I had just come back from school, talking about what I had learned, while she had come to work. When I asked why she wasn't in school, the answer was simple: <span class="text-emphasis">NO TIME, NO MONEY, and TOO LATE</span></p>
+
+                <p class="story-paragraph reveal-text">That contrast stayed with me.</p>
+
+                <p class="story-paragraph reveal-text">So I started small. I began teaching her whatever I knew, sitting together each day after she finished her work. Over time, something shifted — not just in what she learned, but in what she believed was possible. She began to want school for herself.</p>
+
+                <p class="story-paragraph reveal-text emphasis-large">That moment grew.</p>
+
+                <div class="growth-timeline">
+                    <div class="growth-stage reveal-block">
+                        <div class="growth-image">
+                            <div class="image-placeholder">IMAGE OF ONE CHILD</div>
+                        </div>
+                        <p class="growth-caption">One child became a small group</p>
+                    </div>
+
+                    <div class="growth-connector"></div>
+
+                    <div class="growth-stage reveal-block">
+                        <div class="growth-image">
+                            <div class="image-placeholder">IMAGE HERE</div>
+                        </div>
+                        <p class="growth-caption">and then something larger.</p>
+                    </div>
+                </div>
+
+                <p class="story-paragraph reveal-text">But as the effort expanded, it became clear that teaching alone wasn't enough. Children weren't out of school simply because they hadn't learned — they were held back by financial pressure, unsupported systems, and the belief that they had fallen too far behind.</p>
+
+                <div class="story-conclusion reveal-block">
+                    <h3>The Doorsteps Project was built from that realisation.</h3>
+                    <p>Not just to teach, but to remove the barriers around learning — so that returning to school becomes possible, sustainable, and lasting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section class="section how-we-work" id="how-we-work">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Our Approach</p>
+                <h2 class="section-title reveal-text">A Closed-Loop Model for<br>Education Reintegration</h2>
+                <p class="section-intro reveal-text">We don't address one barrier at a time — we remove <span class="text-gold">every barrier</span> that keeps a child out of school.</p>
+            </div>
+
+            <div class="steps-timeline">
+                <div class="timeline-line"></div>
+
+                <div class="step reveal-block" data-step="1">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Identify</h3>
+                        <p class="step-description">We work within underserved communities to identify children who are out of school — often due to financial pressure, migration, or prolonged absence.</p>
+                    </div>
+                </div>
+
+                <div class="step reveal-block" data-step="2">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Bridge Learning</h3>
+                        <p class="step-description">Children attend daily doorstep learning sessions focused on literacy, numeracy, and life skills.</p>
+                        <p class="step-description">These programmes are designed for students who have been out of school for 1–3 years, helping them rebuild confidence and academic readiness.</p>
+                    </div>
+                </div>
+
+                <div class="step reveal-block" data-step="3">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Family Support</h3>
+                        <p class="step-description">We work directly with families to address the root economic causes of school dropout.</p>
+                        <p class="step-description">This includes linking households to government welfare and income-support schemes, ensuring that education does not come at the cost of survival.</p>
+                    </div>
+                </div>
+
+                <div class="step reveal-block" data-step="4">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3 class="step-title">School Reintegration</h3>
+                        <p class="step-description">Through partnerships with government schools and organisations, we create guaranteed pathways for children to re-enter formal education.</p>
+                        <p class="step-description">Students are placed into appropriate grade levels with support systems already in place.</p>
+                    </div>
+                </div>
+
+                <div class="step reveal-block" data-step="5">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Retention & Mentorship</h3>
+                        <p class="step-description">Reintegration is not the end.</p>
+                        <p class="step-description">We provide continued mentorship, monitor attendance, and conduct sessions on mental health, resilience, and peer support — ensuring children stay in school and continue to progress.</p>
+                    </div>
+                </div>
+
+                <div class="step reveal-block" data-step="6">
+                    <div class="step-number">06</div>
+                    <div class="step-content">
+                        <h3 class="step-title">System Strengthening</h3>
+                        <p class="step-description">We also strengthen the ecosystem around the child by:</p>
+                        <ul class="step-list">
+                            <li>Supporting partner schools</li>
+                            <li>Training youth volunteers</li>
+                            <li>Integrating child-rights awareness into learning</li>
+                        </ul>
+                        <p class="step-description">This ensures long-term, sustainable impact beyond individual reintegration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="section-conclusion reveal-text">This model ensures that children don't just return to school — they <span class="text-gold">remain there</span>, supported by systems designed for their success.</p>
+        </div>
+    </section>
+
+    <!-- Global Success Section -->
+    <section class="section global-success" id="global-success">
+        <div class="container-wide">
+            <div class="section-header">
+                <p class="section-label">Worldwide Impact</p>
+                <h2 class="section-title reveal-text">Global Success</h2>
+                <p class="section-intro reveal-text">While the mission remains constant — ensuring every child returns to school — the barriers are not the same everywhere.</p>
+                <p class="section-intro reveal-text">The Doorsteps Project adapts to local realities, addressing the root causes that keep children out of education across different regions.</p>
+            </div>
+
+            <div class="regions">
+                <!-- India -->
+                <div class="region reveal-block" data-region="india">
+                    <div class="region-header">
+                        <h3 class="region-title">In India</h3>
+                        <div class="region-marker">🇮🇳</div>
+                    </div>
+                    <div class="region-content">
+                        <p>The Doorsteps Project began in India, working within informal worker communities where children are often pushed out of school due to financial pressure.</p>
+                        <p>Here, the foundation of the model was built:</p>
+                        <ul class="region-list">
+                            <li><strong>Bridge learning programmes</strong> across 15 districts, preparing out-of-school children to return to classrooms</li>
+                            <li><strong>Direct family engagement</strong>, linking 5,000+ households to government welfare and income-support schemes</li>
+                            <li><strong>Structured reintegration</strong> through partnerships with government schools and organisations like Ekal Vidyalaya and Friends of Tribal Society</li>
+                        </ul>
+                        <p>Alongside this, Ariana contributed as part of <strong>Students For LAST-MILE Learning</strong>, supporting large-scale fundraising and school development efforts that strengthened over 550 rural schools — ensuring reintegrated students entered functional learning environments.</p>
+                        <p>The initiative also led one of the largest child-rights legal awareness efforts, earning an <strong>Asia Record</strong> for the largest legal rights awareness campaign, expanding legal literacy across communities and schools.</p>
+                        <div class="region-principle">
+                            <p><strong>This phase established a key principle:<br>Education access fails when survival is at risk.</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Africa -->
+                <div class="region reveal-block" data-region="africa">
+                    <div class="region-header">
+                        <h3 class="region-title">In Africa</h3>
+                        <div class="region-marker">🌍</div>
+                    </div>
+                    <div class="region-content">
+                        <p>As the model expanded, a new barrier became clear.</p>
+                        <p>In flood-prone regions such as Lagos, students are not out of school because of cost —<br>they simply cannot reach it.</p>
+                        <p class="emphasis-text">The model adapted.</p>
+                        <p>Through the <strong>Bridges to Blocks (Itowolo Infrastructure Project)</strong>:</p>
+                        <ul class="region-list">
+                            <li>Unsafe wooden crossings are being replaced with permanent, flood-resilient infrastructure</li>
+                            <li>Safe, reliable access to education is being restored</li>
+                        </ul>
+                        <p>This is supported by collaboration with the <strong>State Universal Basic Education Board</strong>, aligning implementation with public education systems and enabling long-term scalability.</p>
+                        <p>Alongside infrastructure, the project integrates:</p>
+                        <ul class="region-list">
+                            <li>Climate literacy programmes across secondary schools</li>
+                            <li>Student-led environmental action and policy awareness</li>
+                        </ul>
+                        <div class="region-principle">
+                            <p><strong>This phase reinforced:<br>Without physical access, education cannot exist.</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nepal -->
+                <div class="region reveal-block" data-region="nepal">
+                    <div class="region-header">
+                        <h3 class="region-title">In Nepal</h3>
+                        <div class="region-marker">🇳🇵</div>
+                    </div>
+                    <div class="region-content">
+                        <p>In Nepal, the barrier is not just access — but disruption.</p>
+                        <p>Children affected by conflict and displacement face interrupted education, instability, and emotional stress that directly impact their ability to learn.</p>
+                        <p class="emphasis-text">Here, the model evolved further.</p>
+                        <p>The Doorsteps Project prioritises these children by:</p>
+                        <ul class="region-list">
+                            <li>Delivering bridge learning programmes tailored for disrupted education journeys</li>
+                            <li>Embedding structured mental health and resilience sessions within learning environments</li>
+                            <li>Working closely with government schools to ensure supported reintegration</li>
+                        </ul>
+                        <p>The focus is not just returning children to classrooms —<br>but ensuring they are able to rebuild confidence, stability, and continuity in learning.</p>
+                        <div class="region-principle">
+                            <p><strong>This phase highlighted:<br>Education must also rebuild what instability takes away.</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Synthesis -->
+                <div class="synthesis reveal-block">
+                    <h3 class="synthesis-title">Across all regions, the barriers differ —<br>but the response remains intentional and interconnected.</h3>
+                    <div class="synthesis-grid">
+                        <div class="synthesis-item">
+                            <div class="synthesis-icon">💰</div>
+                            <h4>Economic support</h4>
+                            <p>enabling families to prioritise education without risking financial survival</p>
+                        </div>
+                        <div class="synthesis-item">
+                            <div class="synthesis-icon">🏫</div>
+                            <h4>Sustained school support</h4>
+                            <p>strengthening partner schools to ensure reintegrated students enter stable learning environments</p>
+                        </div>
+                        <div class="synthesis-item">
+                            <div class="synthesis-icon">⚖️</div>
+                            <h4>Legal rights awareness<br><span class="location-tag">(India)</span></h4>
+                            <p>empowering children to understand and assert their right to education</p>
+                        </div>
+                        <div class="synthesis-item">
+                            <div class="synthesis-icon">🌱</div>
+                            <h4>Climate education<br><span class="location-tag">(Lagos)</span></h4>
+                            <p>equipping students to navigate and respond to environmental disruption</p>
+                        </div>
+                        <div class="synthesis-item">
+                            <div class="synthesis-icon">💚</div>
+                            <h4>Mental health support<br><span class="location-tag">(Nepal)</span></h4>
+                            <p>supporting emotional resilience for children affected by conflict and displacement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborations Section -->
+    <section class="section collaborations">
+        <div class="container">
+            <h2 class="section-title reveal-text">Collaborations & Recognitions</h2>
+
+            <div class="collab-grid">
+                <div class="collab-item reveal-block">Ashoka Young Changemakers</div>
+                <div class="collab-item reveal-block">Government of Nepal</div>
+                <div class="collab-item reveal-block">Government of Kathmandu</div>
+                <div class="collab-item reveal-block">ACORN Foundation India</div>
+                <div class="collab-item reveal-block">IB Youth Action Fund</div>
+                <div class="collab-item reveal-block">The Earth Prize</div>
+                <div class="collab-item reveal-block">Noble World Record</div>
+                <div class="collab-item reveal-block">Asia Record</div>
+                <div class="collab-item reveal-block">State Universal Basic Education Board (SUBEB), Lagos</div>
+                <div class="collab-item reveal-block">Ekal Vidyalaya / Friends of Tribal Society</div>
+                <div class="collab-item reveal-block">Global Social Leaders</div>
+            </div>
+
+            <div class="attachment-note reveal-text">*ATTACH ALL LORs*</div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section impact" id="impact">
+        <div class="container">
+            <div class="impact-quote reveal-block">
+                <p class="impact-quote-text">"No time. No money. Too late.</p>
+                <p class="impact-quote-text">We exist so no child hears this again."</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat reveal-block">
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label">VOLUNTEERS</div>
+                </div>
+                <div class="stat reveal-block">
+                    <div class="stat-number" data-target="12000">0</div>
+                    <div class="stat-label">STUDENTS TAUGHT</div>
+                </div>
+                <div class="stat reveal-block">
+                    <div class="stat-number" data-target="8000">0</div>
+                    <div class="stat-label">STUDENTS REINTEGRATED</div>
+                </div>
+                <div class="stat reveal-block">
+                    <div class="stat-number">70%+</div>
+                    <div class="stat-label">REINTEGRATION RATE</div>
+                </div>
+                <div class="stat reveal-block">
+                    <div class="stat-number" data-target="7000">0</div>
+                    <div class="stat-label">FAMILIES SUPPORTED</div>
+                </div>
+                <div class="stat reveal-block">
+                    <div class="stat-number" data-target="10">0</div>
+                    <div class="stat-label">SCHOOLS ASSISTED</div>
+                </div>
+            </div>
+
+            <div class="attachment-note reveal-text">*ATTACH ALL ARTICLES*</div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section class="section join-us" id="join-us">
+        <div class="container">
+            <div class="join-content reveal-block">
+                <h2 class="section-title">JOIN US</h2>
+                <p class="join-message">No time. No money. Too late.<br>We exist so no child hears this again.</p>
+                <div class="join-ctas">
+                    <a href="#" class="btn btn-primary-large">Join Us</a>
+                    <a href="#" class="btn btn-secondary">Collaborate</a>
+                    <a href="#" class="btn btn-secondary">Support the Mission</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">The Doorsteps Project</div>
+                <p class="footer-tagline">Ensuring every child returns to school, for life.</p>
+            </div>
+            <div class="footer-right">
+                <p>&copy; 2024 The Doorsteps Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="doorsteps-cinematic-fixed.js"></script>
+</body>
+</html>

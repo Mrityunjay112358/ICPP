@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Doorsteps Project - Ensuring every child returns to school, for life</title>
+    <meta name="description" content="A closed-loop model for education reintegration across India, Africa, and Nepal.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===================================
+           CRITICAL CSS - INLINE FOR SPEED
+           =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0b;
+            --bg-surface: #121214;
+            --text-primary: #f5f5f0;
+            --text-secondary: #a8a8a0;
+            --accent-gold: #d4af37;
+            --accent-subtle: #e8e8dc;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        html {
+            /* scroll-behavior removed - using Lenis smooth scroll */
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            opacity: 1 !important; /* Force visible */
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 24px 0;
+            background: linear-gradient(180deg, rgba(10, 10, 11, 0.95) 0%, transparent 100%);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+        }
+
+        .nav.scrolled {
+            padding: 16px 0;
+            background: rgba(10, 10, 11, 0.98);
+            border-bottom: 1px solid rgba(245, 245, 240, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 80px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg-layer {
+            position: absolute;
+            inset: 0;
+        }
+
+        .layer-1 {
+            background: radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+        }
+
+        .layer-2 {
+            background: radial-gradient(circle at 70% 60%, rgba(232, 232, 220, 0.04) 0%, transparent 50%);
+        }
+
+        .layer-3 {
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 11, 0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1100px;
+            padding: 0 clamp(20px, 5vw, 80px);
+        }
+
+        .hero-title {
+            font-size: clamp(56px, 10vw, 128px);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 32px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 48px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            border: 1px solid var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 245, 240, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(245, 245, 240, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(245, 245, 240, 0.08);
+        }
+
+        /* Sections */
+        .section {
+            padding: clamp(80px, 15vh, 180px) 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 80px);
+        }
+
+        .section-title {
+            font-size: clamp(40px, 6vw, 80px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 48px;
+            color: var(--accent-gold);
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 24px;
+        }
+
+        .story-paragraph {
+            font-size: clamp(17px, 2vw, 20px);
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 32px;
+        }
+
+        .text-emphasis {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .text-gold {
+            color: var(--accent-gold);
+        }
+
+        /* Make sure content is visible */
+        .our-story,
+        .how-we-work,
+        .global-success,
+        .collaborations,
+        .impact,
+        .join-us {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(245, 245, 240, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 80px);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .footer-tagline {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero {
+                min-height: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">The <span style="color: var(--accent-gold);">Doorsteps</span> Project</div>
+            <ul class="nav-menu">
+                <li><a href="#our-story">Our Story</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#how-we-work">How We Work</a></li>
+                <li><a href="#global-success">Global Success</a></li>
+                <li><a href="#collaborations">Collaborations</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-bg-layer layer-1"></div>
+            <div class="hero-bg-layer layer-2"></div>
+            <div class="hero-bg-layer layer-3"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">The <span style="color: var(--accent-gold);">Doorsteps</span> Project</h1>
+            <p class="hero-subtitle">Ensuring every child returns to school, not just once, but for life.</p>
+            <div class="hero-ctas">
+                <a href="#our-story" class="btn btn-primary">Learn More</a>
+                <a href="#join-us" class="btn btn-secondary">Join Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section our-story" id="our-story">
+        <div class="container">
+            <h2 class="section-title">OUR STORY</h2>
+
+            <p class="story-paragraph" style="font-size: clamp(22px, 3vw, 32px); font-weight: 500; color: var(--text-primary);">
+                I was ten when I first understood how unequal access to education could be.
+            </p>
+
+            <p class="story-paragraph">
+                A woman who worked in our home brought her daughter with her, a girl my age. I had just come back from school, talking about what I had learned, while she had come to work. When I asked why she wasn't in school, the answer was simple: <span class="text-emphasis">NO TIME, NO MONEY, and TOO LATE</span>
+            </p>
+
+            <p class="story-paragraph">That contrast stayed with me.</p>
+
+            <p class="story-paragraph">
+                So I started small. I began teaching her whatever I knew, sitting together each day after she finished her work.
+            </p>
+
+            <p class="story-paragraph evolution-text" style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; text-align: center; margin: 80px 0;">
+                That moment grew.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin: 80px 0; align-items: center;">
+                <div style="text-align: center;">
+                    <img src="screenshot 1.png" alt="One child" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 16px;">
+                    <p style="font-size: 16px; color: var(--text-secondary); margin: 0;">One child became a</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <img src="screenshot 2.png" alt="Small group" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 16px;">
+                    <p style="font-size: 16px; color: var(--text-secondary); margin: 0;">small group, and then</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <img src="screenshot 3.png" alt="Something larger" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 16px;">
+                    <p style="font-size: 16px; color: var(--text-secondary); margin: 0;">something larger.</p>
+                </div>
+            </div>
+
+            <p class="story-paragraph" style="font-size: clamp(22px, 3vw, 32px); margin-top: 80px;">
+                <span style="font-size: clamp(56px, 8vw, 96px); font-weight: 900; color: var(--accent-gold); line-height: 1;">But</span> as the effort expanded, it became clear that teaching alone wasn't enough.
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin: 60px 0; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <div style="padding: 24px 40px; background: rgba(212, 175, 55, 0.12); border: 2px solid rgba(212, 175, 55, 0.4); border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <p style="font-size: clamp(17px, 2vw, 20px); font-weight: 700; color: var(--text-primary); margin: 0; text-align: center;">Financial Pressure</p>
+                </div>
+                <div style="padding: 24px 40px; background: rgba(212, 175, 55, 0.12); border: 2px solid rgba(212, 175, 55, 0.4); border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <p style="font-size: clamp(17px, 2vw, 20px); font-weight: 700; color: var(--text-primary); margin: 0; text-align: center;">Unsupported Systems</p>
+                </div>
+                <div style="padding: 24px 40px; background: rgba(212, 175, 55, 0.12); border: 2px solid rgba(212, 175, 55, 0.4); border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <p style="font-size: clamp(17px, 2vw, 20px); font-weight: 700; color: var(--text-primary); margin: 0; text-align: center;">The Belief They Had Fallen Too Far Behind</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 80px; padding: 48px; background: rgba(212, 175, 55, 0.05); border-left: 2px solid var(--accent-gold); border-radius: 8px;">
+                <h3 style="font-size: clamp(24px, 3vw, 36px); font-weight: 700; margin-bottom: 20px;">
+                    The Doorsteps Project was built from that realisation.
+                </h3>
+                <p class="story-paragraph" style="margin-bottom: 0;">
+                    Not just to teach, but to remove the barriers around learning so that returning to school becomes possible, sustainable, and lasting.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section impact" id="impact">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 100px;">
+                <p style="font-size: clamp(32px, 5vw, 56px); font-weight: 800; line-height: 1.3; margin-bottom: 16px;">"No time. No money. Too late.</p>
+                <p style="font-size: clamp(32px, 5vw, 56px); font-weight: 800; line-height: 1.3;">We exist so no child hears this again."</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; margin-bottom: 80px;">
+                <div style="text-align: center; padding: 48px 32px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 16px;">
+                    <div class="counter" data-target="150" style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-subtle) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 16px;">0</div>
+                    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-secondary);">VOLUNTEERS</div>
+                </div>
+
+                <div style="text-align: center; padding: 48px 32px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 16px;">
+                    <div class="counter" data-target="12000" style="font-size: clamp(44px, 7vw, 72px); font-weight: 900; color: var(--accent-gold); line-height: 1.3; margin-bottom: 16px; padding: 0 10px;">0</div>
+                    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-secondary);">STUDENTS TAUGHT</div>
+                </div>
+
+                <div style="text-align: center; padding: 48px 32px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 16px;">
+                    <div class="counter" data-target="8000" style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-subtle) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 16px;">0</div>
+                    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-secondary);">STUDENTS REINTEGRATED</div>
+                </div>
+
+                <div style="text-align: center; padding: 48px 32px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 16px;">
+                    <div class="counter" data-target="70" data-suffix="%+" style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-subtle) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 16px;">0%+</div>
+                    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-secondary);">REINTEGRATION RATE</div>
+                </div>
+
+                <div style="text-align: center; padding: 48px 32px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 16px;">
+                    <div class="counter" data-target="7000" style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-subtle) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 16px;">0</div>
+                    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-secondary);">FAMILIES SUPPORTED</div>
+                </div>
+
+                <div style="text-align: center; padding: 48px 32px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 16px;">
+                    <div class="counter" data-target="10" style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-subtle) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 16px;">0</div>
+                    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-secondary);">SCHOOLS ASSISTED</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section class="section how-we-work" id="how-we-work">
+        <div class="container">
+            <p class="section-label">Our Approach</p>
+            <h2 class="section-title">A Closed-Loop Model for<br>Education Reintegration</h2>
+            <p style="font-size: clamp(18px, 2vw, 22px); color: var(--text-secondary); margin-bottom: 80px; text-align: center;">
+                We don't address one barrier at a time, we remove <span class="text-gold">every barrier</span> that keeps a child out of school.
+            </p>
+
+            <div style="max-width: 900px; margin: 0 auto;">
+                <!-- Step 1 -->
+                <div style="margin-bottom: 60px; padding: 40px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 16px;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent-gold); flex-shrink: 0;">01</div>
+                        <h3 style="font-size: clamp(24px, 3vw, 32px); font-weight: 700; margin: 0;">Identify</h3>
+                    </div>
+                    <p class="story-paragraph" style="margin-bottom: 0;">We work within underserved communities to identify children who are out of school, often due to financial pressure, migration, or prolonged absence.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div style="margin-bottom: 60px; padding: 40px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 16px;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent-gold); flex-shrink: 0;">02</div>
+                        <h3 style="font-size: clamp(24px, 3vw, 32px); font-weight: 700; margin: 0;">Bridge Learning</h3>
+                    </div>
+                    <p class="story-paragraph" style="margin-bottom: 12px;">Children attend daily doorstep learning sessions focused on literacy, numeracy, and life skills.</p>
+                    <p class="story-paragraph" style="margin-bottom: 0;">These programmes are designed for students who have been out of school for 1–3 years, helping them rebuild confidence and academic readiness.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div style="margin-bottom: 60px; padding: 40px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 16px;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent-gold); flex-shrink: 0;">03</div>
+                        <h3 style="font-size: clamp(24px, 3vw, 32px); font-weight: 700; margin: 0;">Family Support</h3>
+                    </div>
+                    <p class="story-paragraph" style="margin-bottom: 12px;">We work directly with families to address the root economic causes of school dropout.</p>
+                    <p class="story-paragraph" style="margin-bottom: 0;">This includes linking households to government welfare and income-support schemes, ensuring that education does not come at the cost of survival.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div style="margin-bottom: 60px; padding: 40px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 16px;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent-gold); flex-shrink: 0;">04</div>
+                        <h3 style="font-size: clamp(24px, 3vw, 32px); font-weight: 700; margin: 0;">School Reintegration</h3>
+                    </div>
+                    <p class="story-paragraph" style="margin-bottom: 12px;">Through partnerships with government schools and organisations, we create guaranteed pathways for children to re-enter formal education.</p>
+                    <p class="story-paragraph" style="margin-bottom: 0;">Students are placed into appropriate grade levels with support systems already in place.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div style="margin-bottom: 60px; padding: 40px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 16px;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent-gold); flex-shrink: 0;">05</div>
+                        <h3 style="font-size: clamp(24px, 3vw, 32px); font-weight: 700; margin: 0;">Retention & Mentorship</h3>
+                    </div>
+                    <p class="story-paragraph" style="margin-bottom: 12px;">Reintegration is not the end.</p>
+                    <p class="story-paragraph" style="margin-bottom: 0;">We provide continued mentorship, monitor attendance, and conduct sessions on mental health, resilience, and peer support, ensuring children stay in school and continue to progress.</p>
+                </div>
+
+                <!-- Step 6 -->
+                <div style="margin-bottom: 0; padding: 40px; background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 16px;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent-gold); flex-shrink: 0;">06</div>
+                        <h3 style="font-size: clamp(24px, 3vw, 32px); font-weight: 700; margin: 0;">System Strengthening</h3>
+                    </div>
+                    <p class="story-paragraph" style="margin-bottom: 12px;">We also strengthen the ecosystem around the child by:</p>
+                    <ul style="margin: 16px 0 16px 24px;">
+                        <li style="color: var(--text-secondary); margin-bottom: 8px;">Supporting partner schools</li>
+                        <li style="color: var(--text-secondary); margin-bottom: 8px;">Training youth volunteers</li>
+                        <li style="color: var(--text-secondary); margin-bottom: 8px;">Integrating child-rights awareness into learning</li>
+                    </ul>
+                    <p class="story-paragraph" style="margin-bottom: 0;">This ensures long-term, sustainable impact beyond individual reintegration.</p>
+                </div>
+            </div>
+
+            <p style="font-size: clamp(20px, 2.5vw, 28px); font-weight: 600; text-align: center; max-width: 900px; margin: 80px auto 0; line-height: 1.6;">
+                This model ensures that children don't just return to school, they <span class="text-gold">remain there</span>, supported by systems designed for their success.
+            </p>
+        </div>
+    </section>
+
+    <!-- Global Success Section -->
+    <section class="section global-success" id="global-success">
+        <div class="container">
+            <p class="section-label">Impact Across Borders</p>
+            <h2 class="section-title">Global Success</h2>
+
+            <p style="font-size: clamp(20px, 2.5vw, 28px); font-weight: 600; color: var(--text-primary); margin-bottom: 60px; max-width: 900px;">
+                What began on the streets of Delhi has grown into a movement across continents.
+            </p>
+
+            <div style="margin-bottom: 120px;">
+                <h3 style="font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: 32px; color: var(--accent-gold);">India</h3>
+
+                <p class="story-paragraph" style="font-size: clamp(18px, 2vw, 22px); margin-bottom: 48px;">
+                    The Doorsteps Project began in India, working within informal worker communities where children are often pushed out of school due to financial pressure.
+                </p>
+
+                <p class="story-paragraph" style="font-size: clamp(16px, 1.8vw, 19px); font-style: italic; color: var(--text-secondary); margin-bottom: 48px;">
+                    Here, the foundation of the model was built:
+                </p>
+
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                    <!-- Left: 2x2 Grid -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                        <!-- Block 1 -->
+                        <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                            <img src="Bridge learning programmes across 15 districts.jpeg" alt="Bridge learning programmes" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                            <div style="padding: 16px;">
+                                <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4;">
+                                    Bridge learning programmes across 15 districts
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Block 2 -->
+                        <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                            <img src="screenshot5.jpeg" alt="Family engagement" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                            <div style="padding: 16px;">
+                                <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4;">
+                                    5,000+ households linked to welfare schemes
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Block 3 -->
+                        <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                            <img src="screenshot6.jpeg" alt="Structured reintegration" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                            <div style="padding: 16px;">
+                                <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4;">
+                                    Partnerships with Ekal Vidyalaya & Friends of Tribal Society
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Block 4 -->
+                        <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                            <img src="screenshot8.jpeg" alt="Legal rights awareness" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                            <div style="padding: 16px;">
+                                <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4;">
+                                    Asia Record for largest legal rights awareness campaign
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Vertical Image -->
+                    <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                        <img src="screenshot7.jpeg" alt="Students For Last-Mile Learning" style="width: 100%; flex: 1; object-fit: cover; display: block; min-height: 400px;">
+                        <div style="padding: 16px; background: rgba(245, 245, 240, 0.02);">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4;">
+                                Strengthened 550+ rural schools with Students For Last-Mile Learning
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 120px;">
+                <h3 style="font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: 32px; color: var(--accent-gold);">Lagos</h3>
+
+                <p class="story-paragraph" style="font-size: clamp(18px, 2vw, 22px); margin-bottom: 48px;">
+                    In flood-prone regions such as Lagos, students are not out of school because of cost, they simply cannot reach it.
+                </p>
+
+                <p class="story-paragraph" style="font-size: clamp(16px, 1.8vw, 19px); font-style: italic; color: var(--text-secondary); margin-bottom: 48px;">
+                    Here, the foundation of the model was built:
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 32px;">
+                    <!-- Block 1 -->
+                    <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                        <img src="screenshot14.jpeg" alt="Bridge learning programmes Lagos" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5;">
+                                Bridge learning across 4 districts
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Block 2 -->
+                    <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                        <img src="screenshot15.jpeg" alt="Family engagement Lagos" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5;">
+                                1,000+ households linked to welfare schemes
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Block 3 -->
+                    <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                        <img src="screenshot12.jpeg" alt="Bridges to Blocks Infrastructure" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5;">
+                                Bridges to Blocks: Flood-resilient infrastructure
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 4 - Full Width -->
+                <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                    <img src="Climate literacy & environmental action across secondary schools.jpeg" alt="Climate literacy programmes" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+                    <div style="padding: 24px;">
+                        <p style="font-size: clamp(16px, 2vw, 19px); font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">
+                            Climate literacy & environmental action across secondary schools
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 80px;">
+                <h3 style="font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: 32px; color: var(--accent-gold);">Nepal</h3>
+
+                <p class="story-paragraph" style="font-size: clamp(18px, 2vw, 22px); margin-bottom: 48px;">
+                    In Nepal, the barrier is not just access, but disruption. Children affected by conflict and displacement face interrupted education, instability, and emotional stress that directly impact their ability to learn.
+                </p>
+
+                <p class="story-paragraph" style="font-size: clamp(16px, 1.8vw, 19px); font-style: italic; color: var(--text-secondary); margin-bottom: 48px;">
+                    Here, the foundation of the model was built:
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                    <!-- Block 1 -->
+                    <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                        <img src="screenshot9.jpeg" alt="Bridge learning programmes Nepal" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5;">
+                                Bridge learning across Kathmandu
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Block 2 -->
+                    <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                        <img src="screenshot10.jpeg" alt="Family engagement Nepal" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5;">
+                                1,500+ households linked to welfare schemes
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Block 3 -->
+                    <div style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden;">
+                        <img src="screenshot17.jpeg" alt="Mental health and resilience" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5;">
+                                Mental health & resilience sessions
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding: 48px; background: rgba(212, 175, 55, 0.05); border-left: 2px solid var(--accent-gold); border-radius: 8px;">
+                <p style="font-size: clamp(20px, 2.5vw, 28px); font-weight: 600; line-height: 1.6; margin: 0;">
+                    This is not about charity. It's about justice, ensuring that every child, regardless of where they are born, has the right to learn and the support to stay in school.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborations Section -->
+    <section class="section collaborations" id="collaborations">
+        <div class="container">
+            <p class="section-label">Recognition & Partnership</p>
+            <h2 class="section-title">Collaborations &<br>Recognitions</h2>
+
+            <!-- Top LORs - 2 Vertical -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-bottom: 80px;">
+                <!-- LOR 1 -->
+                <div onclick="window.open('Prof. Ekanto Ghosh, Rhodes Trust Selector, Former Deputy Director, InfoEdge Centre for Entrepreneurship, Ashoka University .pdf', '_blank')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <iframe src="Prof. Ekanto Ghosh, Rhodes Trust Selector, Former Deputy Director, InfoEdge Centre for Entrepreneurship, Ashoka University .pdf#page=1" style="width: 100%; height: 500px; border: none; pointer-events: none;"></iframe>
+                    <div style="padding: 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5; text-align: center;">
+                            Prof. Ekanto Ghosh<br>
+                            <span style="font-size: 13px; color: var(--text-secondary); font-weight: 400;">Rhodes Trust Selector, Former Deputy Director, InfoEdge Centre for Entrepreneurship, Ashoka University</span><br>
+                            <span style="font-size: 12px; color: var(--accent-gold); font-weight: 500;">(Click to view full PDF)</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LOR 2 -->
+                <div onclick="window.open('Dr. Arun Garg, District Collector & District Magistrate, Jhunjhunu.png', '_blank')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <img src="Dr. Arun Garg, District Collector & District Magistrate, Jhunjhunu.png" alt="Dr. Arun Garg LOR" style="width: 100%; height: 500px; object-fit: contain; display: block; background: white; padding: 20px;">
+                    <div style="padding: 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5; text-align: center;">
+                            Dr. Arun Garg<br>
+                            <span style="font-size: 13px; color: var(--text-secondary); font-weight: 400;">District Collector & District Magistrate, Jhunjhunu</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Family Support Section -->
+            <div style="margin-bottom: 80px;">
+                <h3 style="font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; margin-bottom: 40px; color: var(--accent-gold); text-align: center;">Family Support</h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;">
+                    <div onclick="openModal('Letter of endorsement, Rajendra Rathore - Former Health Minister.png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="Letter of endorsement, Rajendra Rathore - Former Health Minister.png" alt="Rajendra Rathore" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4; text-align: center;">
+                                Rajendra Rathore - Former Health Minister
+                            </p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Letter of proof, Rimu Basu - Project Manager, Acorn foundation, Dharavi, Mumbai.  .png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="Letter of proof, Rimu Basu - Project Manager, Acorn foundation, Dharavi, Mumbai.  .png" alt="Rimu Basu" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4; text-align: center;">
+                                Rimu Basu - Acorn Foundation, Dharavi
+                            </p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Letter of Proof, Keshar Sing Chauhan - Sr. Branch Manager, Punjab National Bank.  .png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="Letter of Proof, Keshar Sing Chauhan - Sr. Branch Manager, Punjab National Bank.  .png" alt="Keshar Sing Chauhan" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4; text-align: center;">
+                                Keshar Sing Chauhan - Punjab National Bank
+                            </p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Letter of endorsement, Ajeet Singh Shekawat - Rtd. Inspector General, Government of India  .png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="Letter of endorsement, Ajeet Singh Shekawat - Rtd. Inspector General, Government of India  .png" alt="Ajeet Singh Shekawat" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4; text-align: center;">
+                                Ajeet Singh Shekawat - Rtd. Inspector General
+                            </p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Letter of endorsement, Dr. Gagandeep Singla - IPS (New Delhi) .png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="Letter of endorsement, Dr. Gagandeep Singla - IPS (New Delhi) .png" alt="Dr. Gagandeep Singla" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4; text-align: center;">
+                                Dr. Gagandeep Singla - IPS (New Delhi)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Letter of endorsement, Kamini Jindal - Former MLA, Government of Rajasthan .png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="Letter of endorsement, Kamini Jindal - Former MLA, Government of Rajasthan .png" alt="Kamini Jindal" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4; text-align: center;">
+                                Kamini Jindal - Former MLA, Rajasthan
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Articles -->
+                <p style="font-size: 18px; font-weight: 600; color: var(--text-secondary); margin-bottom: 24px; text-align: center;">Featured in Media</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                    <div onclick="openModal('Hindustan Times.png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="Hindustan Times.png" alt="Hindustan Times" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; text-align: center;">Hindustan Times</p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('The Indian Express.png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="The Indian Express.png" alt="The Indian Express" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; text-align: center;">The Indian Express</p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Dainik Bhaskar.png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="Dainik Bhaskar.png" alt="Dainik Bhaskar" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; text-align: center;">Dainik Bhaskar</p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Mridul Patrika .png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="Mridul Patrika .png" alt="Mridul Patrika" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; text-align: center;">Mridul Patrika</p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Patrika plus and Aas Paas News .png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="Patrika plus and Aas Paas News .png" alt="Patrika Plus" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                        <div style="padding: 16px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; text-align: center;">Patrika Plus & Aas Paas News</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Retention & Mentorship Section -->
+            <div style="margin-bottom: 80px;">
+                <h3 style="font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; margin-bottom: 40px; color: var(--accent-gold); text-align: center;">Retention & Mentorship</h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+                    <div onclick="openModal('District_Education_Office_Jaipur.png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="District_Education_Office_Jaipur.png" alt="District Education Office Jaipur" style="width: 100%; height: 220px; object-fit: contain; display: block; background: white; padding: 10px;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5; text-align: center;">
+                                District Education Office (HQ) Secondary, Jaipur
+                            </p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Department of Medical, Health & FW, Swasthya Bhawan, Jaipur, National Health Mission Rajasthan, Government of Rajasthan.png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="Department of Medical, Health & FW, Swasthya Bhawan, Jaipur, National Health Mission Rajasthan, Government of Rajasthan.png" alt="National Health Mission" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5; text-align: center;">
+                                National Health Mission Rajasthan
+                            </p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Harlal Saran, Education Minister, Churu .png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="Harlal Saran, Education Minister, Churu .png" alt="Harlal Saran" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5; text-align: center;">
+                                Harlal Saran - Education Minister, Churu
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Strengthening Section -->
+            <div style="margin-bottom: 60px;">
+                <h3 style="font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; margin-bottom: 40px; color: var(--accent-gold); text-align: center;">System Strengthening</h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
+                    <div onclick="openModal('JUSTICE JAINENDRA KUMAR RANKA - Former Judge Rajasthan High Court, Senior Advocate (Supreme Court) .png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="JUSTICE JAINENDRA KUMAR RANKA - Former Judge Rajasthan High Court, Senior Advocate (Supreme Court) .png" alt="Justice Jainendra Kumar Ranka" style="width: 100%; height: 300px; object-fit: contain; display: block; background: white; padding: 20px;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5; text-align: center;">
+                                Justice Jainendra Kumar Ranka<br>
+                                <span style="font-size: 13px; color: var(--text-secondary); font-weight: 400;">Former Judge Rajasthan High Court, Senior Advocate (Supreme Court)</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div onclick="openModal('Justice S. S. Kothari (Retd.) Former Lokayukta, Rajasthan.png')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="Justice S. S. Kothari (Retd.) Former Lokayukta, Rajasthan.png" alt="Justice S. S. Kothari" style="width: 100%; height: 300px; object-fit: contain; display: block; background: white; padding: 20px;">
+                        <div style="padding: 20px;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.5; text-align: center;">
+                                Justice S. S. Kothari (Retd.)<br>
+                                <span style="font-size: 13px; color: var(--text-secondary); font-weight: 400;">Former Lokayukta, Rajasthan</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collaborations Section -->
+            <div style="margin-top: 100px;">
+                <h3 style="font-size: clamp(32px, 4vw, 48px); font-weight: 800; margin-bottom: 60px; color: var(--accent-gold); text-align: center;">Collaborations & Partnerships</h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;">
+                    <!-- Ashoka Young Changemakers -->
+                    <div onclick="showCollabDesc('ashoka')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="Ashoka Young Changemaker.jpeg" alt="Ashoka" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">Ashoka Young Changemakers</p>
+                    </div>
+
+                    <!-- IB Youth Action Fund -->
+                    <div onclick="showCollabDesc('ibyaf')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="IBYAF.jpeg" alt="IB Youth Action Fund" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">IB Youth Action Fund Grant</p>
+                    </div>
+
+                    <!-- Government of Nepal -->
+                    <div onclick="showCollabDesc('nepal')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="Govt of Nepal.jpeg" alt="Government of Nepal" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">Government of Nepal</p>
+                    </div>
+
+                    <!-- The Earth Prize -->
+                    <div onclick="showCollabDesc('earthprize')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="TEP.jpeg" alt="The Earth Prize" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">The Earth Prize</p>
+                    </div>
+
+                    <!-- SUEB Nigeria -->
+                    <div onclick="showCollabDesc('nigeria')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="SUEB.jpeg" alt="Universal Basic Education Commission Nigeria" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">Universal Basic Education Commission (Nigeria)</p>
+                    </div>
+
+                    <!-- Global Social Leaders -->
+                    <div onclick="showCollabDesc('gsl')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="gsl.jpeg" alt="Global Social Leaders" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">Global Social Leaders</p>
+                    </div>
+
+                    <!-- Ekal Vidyalaya -->
+                    <div onclick="showCollabDesc('ekal')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="ekal.jpeg" alt="Ekal Vidyalaya" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">Ekal Vidyalaya Partnership</p>
+                    </div>
+
+                    <!-- Government of Bihar -->
+                    <div onclick="showCollabDesc('bihar')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="bihar.jpeg" alt="Government of Bihar" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">Government of Bihar</p>
+                    </div>
+
+                    <!-- Government of India -->
+                    <div onclick="showCollabDesc('india')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="india.jpeg" alt="Government of India" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">Government of India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="section resources" id="resources" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.03) 0%, rgba(10, 10, 11, 1) 100%); position: relative; overflow: hidden;">
+        <!-- Background decoration -->
+        <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, transparent 70%); border-radius: 50%;"></div>
+
+        <div class="container" style="position: relative; z-index: 1;">
+            <div style="text-align: center; margin-bottom: 80px;">
+                <p class="section-label" style="color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.2em; font-size: 14px; font-weight: 700; margin-bottom: 20px;">Free Resources</p>
+                <h2 class="section-title" style="font-size: clamp(42px, 6vw, 72px); margin-bottom: 24px;">Tools for Change</h2>
+                <p style="font-size: clamp(18px, 2vw, 24px); color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                    Empowering communities with knowledge, awareness, and actionable resources.
+                </p>
+            </div>
+
+            <!-- Resource 1: Know Your Rights -->
+            <div style="margin-bottom: 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; min-height: 400px;">
+                <div style="order: 1;">
+                    <div style="position: relative; transform: rotate(-2deg); transition: transform 0.4s ease;">
+                        <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 60px 50px; border-radius: 20px; border: 2px solid rgba(212, 175, 55, 0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+                            <div style="font-size: 56px; margin-bottom: 20px;">⚖️</div>
+                            <h3 style="font-size: clamp(28px, 4vw, 42px); font-weight: 800; color: var(--accent-gold); margin-bottom: 20px; line-height: 1.2;">Know Your Rights</h3>
+                            <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 30px;">
+                                Legal Awareness Booklet
+                            </p>
+                            <a href="Know Your Rights- Duaghters of Bharat (2) copy.pdf" download style="display: inline-block; padding: 16px 36px; background: var(--accent-gold); color: #0a0a0b; font-weight: 700; font-size: 15px; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(212, 175, 55, 0.6)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(212, 175, 55, 0.4)'">
+                                📥 Download Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div style="order: 2;">
+                    <p style="font-size: clamp(16px, 1.8vw, 19px); color: var(--text-primary); line-height: 1.9; margin-bottom: 30px;">
+                        Our comprehensive legal rights booklet, created specifically for women in rural communities. This booklet covers fundamental rights, domestic violence laws, reporting procedures, and local contact points for help. Written in simple, accessible language with practical examples.
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div style="background: rgba(245, 245, 240, 0.03); padding: 20px; border-radius: 12px; border-left: 3px solid var(--accent-gold);">
+                            <p style="font-size: 13px; color: var(--accent-gold); font-weight: 700; margin-bottom: 6px;">✓</p>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Available in multiple languages</p>
+                        </div>
+                        <div style="background: rgba(245, 245, 240, 0.03); padding: 20px; border-radius: 12px; border-left: 3px solid var(--accent-gold);">
+                            <p style="font-size: 13px; color: var(--accent-gold); font-weight: 700; margin-bottom: 6px;">✓</p>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Easy-to-understand format</p>
+                        </div>
+                        <div style="background: rgba(245, 245, 240, 0.03); padding: 20px; border-radius: 12px; border-left: 3px solid var(--accent-gold);">
+                            <p style="font-size: 13px; color: var(--accent-gold); font-weight: 700; margin-bottom: 6px;">✓</p>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Practical action steps</p>
+                        </div>
+                        <div style="background: rgba(245, 245, 240, 0.03); padding: 20px; border-radius: 12px; border-left: 3px solid var(--accent-gold);">
+                            <p style="font-size: 13px; color: var(--accent-gold); font-weight: 700; margin-bottom: 6px;">✓</p>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Local contact information</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource 2: The Stolen Breath -->
+            <div style="margin-bottom: 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; min-height: 400px;">
+                <div style="order: 2;">
+                    <div style="position: relative; transform: rotate(2deg); transition: transform 0.4s ease;">
+                        <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.15) 100%); padding: 60px 50px; border-radius: 20px; border: 2px solid rgba(212, 175, 55, 0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+                            <div style="font-size: 56px; margin-bottom: 20px;">🌍</div>
+                            <h3 style="font-size: clamp(28px, 4vw, 42px); font-weight: 800; color: var(--accent-gold); margin-bottom: 20px; line-height: 1.2;">The Stolen Breath</h3>
+                            <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 30px;">
+                                Climate Story & Learning Book
+                            </p>
+                            <a href="The Stolen Breath E-Book.pdf" download style="display: inline-block; padding: 16px 36px; background: var(--accent-gold); color: #0a0a0b; font-weight: 700; font-size: 15px; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(212, 175, 55, 0.6)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(212, 175, 55, 0.4)'">
+                                📥 Download Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div style="order: 1;">
+                    <p style="font-size: clamp(16px, 1.8vw, 19px); color: var(--text-primary); line-height: 1.9; margin-bottom: 30px;">
+                        A powerful climate storytelling book that brings environmental injustice to life through the eyes of children growing up in vulnerable communities. The Stolen Breath combines fiction rooted in real experiences with climate education, helping young readers understand how environmental challenges affect education, safety, and everyday life.
+                    </p>
+                    <p style="font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; font-style: italic;">
+                        Blending storytelling, lived realities, and actionable learning, the book encourages empathy, climate awareness, and youth-led changemaking.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="color: var(--accent-gold); font-size: 20px; flex-shrink: 0;">•</span>
+                            <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">Story-driven climate education</p>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="color: var(--accent-gold); font-size: 20px; flex-shrink: 0;">•</span>
+                            <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">Based on real community experiences</p>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="color: var(--accent-gold); font-size: 20px; flex-shrink: 0;">•</span>
+                            <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">Includes climate learning modules & discussion guides</p>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="color: var(--accent-gold); font-size: 20px; flex-shrink: 0;">•</span>
+                            <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">Designed for schools, youth groups, and community learning spaces</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: var(--accent-gold); margin-top: 24px; font-weight: 600;">
+                        Used for climate education and advocacy across youth communities
+                    </p>
+                </div>
+            </div>
+
+            <!-- Resource 3: Mind Matters -->
+            <div style="margin-bottom: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; min-height: 400px;">
+                <div style="order: 1;">
+                    <div style="position: relative; transform: rotate(-2deg); transition: transform 0.4s ease;">
+                        <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 60px 50px; border-radius: 20px; border: 2px solid rgba(212, 175, 55, 0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+                            <div style="font-size: 56px; margin-bottom: 20px;">🧠</div>
+                            <h3 style="font-size: clamp(28px, 4vw, 42px); font-weight: 800; color: var(--accent-gold); margin-bottom: 20px; line-height: 1.2;">Mind Matters</h3>
+                            <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 30px;">
+                                Mental Health & Well-Being Guide
+                            </p>
+                            <a href="mind matter.pdf" download style="display: inline-block; padding: 16px 36px; background: var(--accent-gold); color: #0a0a0b; font-weight: 700; font-size: 15px; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(212, 175, 55, 0.6)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(212, 175, 55, 0.4)'">
+                                📥 Download Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div style="order: 2;">
+                    <p style="font-size: clamp(16px, 1.8vw, 19px); color: var(--text-primary); line-height: 1.9; margin-bottom: 30px;">
+                        A practical mental health awareness booklet designed to help young people understand emotional well-being, recognize early signs of stress, and build everyday resilience. Mind Matters simplifies mental health concepts through relatable examples, visual frameworks, and actionable self-care tools.
+                    </p>
+                    <p style="font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; font-style: italic;">
+                        Created to reduce stigma and encourage open conversations, the guide supports individuals in recognizing when to seek help and how to support others compassionately.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="color: var(--accent-gold); font-size: 20px; flex-shrink: 0;">•</span>
+                            <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">Easy-to-understand mental health education</p>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="color: var(--accent-gold); font-size: 20px; flex-shrink: 0;">•</span>
+                            <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">Stress recognition and emotional regulation tools</p>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="color: var(--accent-gold); font-size: 20px; flex-shrink: 0;">•</span>
+                            <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">Practical resilience and self-care strategies</p>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="color: var(--accent-gold); font-size: 20px; flex-shrink: 0;">•</span>
+                            <p style="font-size: 15px; color: var(--text-secondary); margin: 0;">Guidance on seeking professional support</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: var(--accent-gold); margin-top: 24px; font-weight: 600;">
+                        Designed for youth, schools, and community learning spaces
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Description Modal -->
+    <div id="collabModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9);">
+        <span onclick="closeCollabModal()" style="position: absolute; top: 20px; right: 40px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10000;">&times;</span>
+        <div style="max-width: 800px; margin: 100px auto; padding: 40px; background: var(--bg-surface); border-radius: 16px; position: relative;">
+            <div id="collabContent"></div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.95);">
+        <span onclick="closeModal()" style="position: absolute; top: 20px; right: 40px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10000;">&times;</span>
+        <img id="modalImage" style="margin: auto; display: block; max-width: 90%; max-height: 90%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">The Doorsteps Project</div>
+                <p class="footer-tagline">Ensuring every child returns to school, for life.</p>
+            </div>
+            <div>
+                <p style="color: var(--text-secondary); font-size: 14px;">&copy; 2026 The Doorsteps Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Smooth Scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    
+    <script>
+        // Simple smooth scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Smooth anchor scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    lenis.scrollTo(target, { offset: -100 });
+                }
+            });
+        });
+
+        // Nav scroll state
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                document.querySelector('.nav').classList.add('scrolled');
+            } else {
+                document.querySelector('.nav').classList.remove('scrolled');
+            }
+        });
+
+        // Evolution animation for "That moment grew"
+        gsap.registerPlugin(ScrollTrigger);
+
+        const evolutionText = document.querySelector('.evolution-text');
+        if (evolutionText) {
+            // Split text into characters
+            const text = evolutionText.textContent;
+            evolutionText.innerHTML = text.split('').map(char =>
+                char === ' ' ? ' ' : `<span class="char" style="display: inline-block;">${char}</span>`
+            ).join('');
+
+            const chars = evolutionText.querySelectorAll('.char');
+
+            // Animate each character
+            gsap.fromTo(chars,
+                {
+                    opacity: 0,
+                    y: 100,
+                    scale: 0.5,
+                    rotationX: -90,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    rotationX: 0,
+                    stagger: 0.08,
+                    duration: 1.2,
+                    ease: 'elastic.out(1, 0.6)',
+                    scrollTrigger: {
+                        trigger: evolutionText,
+                        start: 'top 80%',
+                        end: 'top 50%',
+                        toggleActions: 'play none none none',
+                    }
+                }
+            );
+
+            // Add color wave animation
+            gsap.to(chars, {
+                color: 'var(--accent-gold)',
+                stagger: 0.08,
+                duration: 0.6,
+                ease: 'power2.inOut',
+                scrollTrigger: {
+                    trigger: evolutionText,
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    toggleActions: 'play none none none',
+                }
+            });
+        }
+
+        // Modal functions for viewing images
+        function openModal(imageSrc) {
+            document.getElementById('imageModal').style.display = 'block';
+            document.getElementById('modalImage').src = imageSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal when clicking outside image
+        document.getElementById('imageModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Collaboration modal functions
+        function showCollabDesc(collab) {
+            const descriptions = {
+                ashoka: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">✨ Ashoka Young Changemakers</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Project Doorsteps\' founder is a member of the Ashoka Young Changemakers network, a global community of young social innovators recognized for creating systemic change and leading impactful grassroots initiatives.</p>',
+
+                ibyaf: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">💡 IB Youth Action Fund Grant</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Awarded the International Baccalaureate Youth Action Fund Grant of $2,500 to support Sattva, a retention-focused mentorship intervention in government schools.</p>',
+
+                nepal: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🇳🇵 Government of Nepal</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Project Doorsteps is currently in discussions with the Government of Nepal to scale interventions and replicate The Doorsteps Loop across Nepali schools, with plans for a Memorandum of Understanding (MoU) to formalize long-term collaboration.</p>',
+
+                earthprize: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🌍 The Earth Prize</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Recognized among the Top 35 global teams by The Earth Prize for climate action leadership and educational innovation in underserved communities.</p>',
+
+                nigeria: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🇳🇬 Universal Basic Education Commission (Nigeria)</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Project Doorsteps is currently in discussions with the Universal Basic Education Commission (UBEC) of Nigeria to replicate The Doorsteps Loop in Lagos schools, ensuring every child stays enrolled and engaged.</p>',
+
+                gsl: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🏆 Global Social Leaders</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Awarded Senior Global Category Winner at Global Social Leaders for Sattva, Project Doorsteps\' retention-focused mentorship program.</p>',
+
+                ekal: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🤝 Ekal Vidyalaya Partnership</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Project Doorsteps collaborates with Ekal Vidyalaya to expand outreach in tribal and rural areas, integrating reintegration pathways into their single-teacher school model to support underserved children.</p>',
+
+                bihar: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🇮🇳 Government of Bihar</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Memorandum of Understanding (MoU) discussions with the Government of Bihar to integrate The Doorsteps Loop into state education systems and strengthen dropout prevention strategies.</p>',
+
+                india: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🏛️ Government of India</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Engagement with departments under the Government of India to align Project Doorsteps with national education policy frameworks, ensuring scalable, government-integrated dropout prevention solutions.</p>'
+            };
+
+            document.getElementById('collabContent').innerHTML = descriptions[collab];
+            document.getElementById('collabModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCollabModal() {
+            document.getElementById('collabModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close collab modal on ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeCollabModal();
+            }
+        });
+
+        // Close collab modal when clicking outside
+        document.getElementById('collabModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeCollabModal();
+            }
+        });
+
+        // Counter animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const suffix = element.getAttribute('data-suffix') || '';
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                const displayValue = Math.floor(current).toLocaleString();
+                element.textContent = displayValue + suffix;
+            }, 16);
+        }
+
+        // Trigger counters when Impact section is in view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        if (!counter.classList.contains('animated')) {
+                            counter.classList.add('animated');
+                            animateCounter(counter);
+                        }
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const impactSection = document.querySelector('#impact');
+        if (impactSection) {
+            counterObserver.observe(impactSection);
+        }
+
+        console.log('✅ The Doorsteps Project loaded successfully');
+    </script>
+</body>
+</html>
