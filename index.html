@@ -949,6 +949,12 @@
                         <img src="india.jpeg" alt="Government of India" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
                         <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">Government of India</p>
                     </div>
+
+                    <!-- MU20 -->
+                    <div onclick="showCollabDesc('mu20')" style="background: rgba(245, 245, 240, 0.02); border: 1px solid rgba(245, 245, 240, 0.08); border-radius: 12px; padding: 30px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(212, 175, 55, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <img src="mu20_logo.jpeg" alt="MU20" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 20px;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">MU20 Global Changemakers</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1270,7 +1276,9 @@
 
                 bihar: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🇮🇳 Government of Bihar</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Memorandum of Understanding (MoU) discussions with the Government of Bihar to integrate The Doorsteps Loop into state education systems and strengthen dropout prevention strategies.</p>',
 
-                india: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🏛️ Government of India</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Engagement with departments under the Government of India to align Project Doorsteps with national education policy frameworks, ensuring scalable, government-integrated dropout prevention solutions.</p>'
+                india: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🏛️ Government of India</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Engagement with departments under the Government of India to align Project Doorsteps with national education policy frameworks, ensuring scalable, government-integrated dropout prevention solutions.</p>',
+
+                mu20: '<h3 style="color: var(--accent-gold); margin-bottom: 20px;">🌟 MU20 Global Changemakers</h3><p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">Project Doorsteps\' founder was recognized and awarded as a Changemaker by MU20, a global platform celebrating young leaders who are driving meaningful impact in their communities. This recognition honors the innovative approach and dedication to transforming education access for vulnerable children across borders.</p>'
             };
 
             document.getElementById('collabContent').innerHTML = descriptions[collab];
