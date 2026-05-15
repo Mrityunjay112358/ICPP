@@ -1,5 +1,5 @@
 // ===================================
-// THE DOORSTEPS PROJECT
+// PROJECT RANG
 // Cinematic Animation System (FIXED)
 // ===================================
 
@@ -480,6 +480,6 @@ document.body.style.opacity = '0';
 // ===================================
 // CONSOLE MESSAGE
 // ===================================
-console.log('%c The Doorsteps Project ', 'background: #d4af37; color: #0a0a0b; font-size: 16px; font-weight: bold; padding: 8px 16px;');
+console.log('%c Project Rang ', 'background: #d4af37; color: #0a0a0b; font-size: 16px; font-weight: bold; padding: 8px 16px;');
 console.log('%c Ensuring every child returns to school, for life. ', 'color: #a8a8a0; font-size: 12px;');
 console.log('%c Smooth scrolling: ENABLED ✓ ', 'color: #4ade80; font-size: 12px;');
